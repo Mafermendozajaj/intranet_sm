@@ -1,0 +1,5 @@
+[run]
+include = intranet_sm/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
