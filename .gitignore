@@ -68,3 +68,4 @@ staticfiles/
 
 .cache/
 
+intranet_sm/*/migrations/

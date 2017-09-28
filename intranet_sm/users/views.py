@@ -3,7 +3,9 @@ from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import User
+from pure_pagination.mixins import PaginationMixin
+
+from .models import User, Empleado
 
 
 class UserDetailView(LoginRequiredMixin, DetailView):
@@ -43,6 +45,7 @@ class UserListView(LoginRequiredMixin, ListView):
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
     slug_url_kwarg = 'username'
+
 
 class EmpleadoListView(LoginRequiredMixin, PaginationMixin, ListView ):
     model = Empleado

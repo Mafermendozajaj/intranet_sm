@@ -49,6 +49,11 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+
+    'easy_thumbnails',  # thumb photo
+    'pure_pagination',  # pagination number page
+    'rest_framework',  # rest
+    'import_export',
 ]
 
 # Apps specific for this project go here.
@@ -109,7 +114,7 @@ MANAGERS = ADMINS
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres:///intranet_sm'),
+    'default': env.db('DATABASE_URL', default='postgres://intranet_sm:intranetSM23@localhost/intranet_sm'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -123,7 +128,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 TIME_ZONE = 'UTC'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
