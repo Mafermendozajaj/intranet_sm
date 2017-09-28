@@ -1,0 +1,7 @@
+
+Mensajes del sistema Intranet CIDA
+
+Contenido:
+{{ contenido|safe|striptags }}
+
+Correo enviado por el sistema Intranet CIDA - Departamento de computo

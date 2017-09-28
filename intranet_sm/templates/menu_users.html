@@ -1,0 +1,37 @@
+
+
+       <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user"></i> <span>Usuarios</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Asistencia
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{% url 'empleado_marcas_calendar' %}"><i class="fa fa-calendar"></i>Calendario</a></li>
+                <li><a href="{% url 'marcas_empleado_list' %}"><i class="fa fa-hand-pointer-o"></i>Listado de marcas</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="treeview-menu">
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Recibos
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{% url 'recibo_list_view' %}"><i class="fa fa-file-pdf-o"></i>Listado</a></li>
+              </ul>
+            </li>
+          </ul>
+
+       </li>

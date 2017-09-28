@@ -1,0 +1,63 @@
+
+       <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Intranet</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'users:empleado_list' %}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+          </ul>
+        </li>
+
+       {% comment %}
+       <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Administrador</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Asistencia
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{% url 'dispositivo_list' %}"><i class="fa fa-circle-o"></i>Dispositivos</a></li>
+                <li><a href="{% url 'marcas_list' %}"><i class="fa fa-circle-o"></i>Marcas</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+       <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>CIDA</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Asistencia
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{% url 'empresa_dispositivos_list' %}"><i class="fa fa-circle-o"></i>Dispositivos</a></li>
+                  <li><a href="{% url 'empresa_empleados_dispositivos' %}"><i class="fa fa-circle-o"></i>Asociar</a></li>
+
+
+                  <li><a href="{% url 'empresa_marcas_empleados' %}"><i class="fa fa-circle-o"></i>Marcas</a></li>
+                  <li><a href="{% url 'marcas_empleado_list' %}"><i class="fa fa-circle-o"></i>Marcas</a></li>
+
+              </ul>
+            </li>
+          </ul>
+        </li>
+       {% endcomment %}

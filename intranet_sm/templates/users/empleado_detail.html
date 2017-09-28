@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}User: {{ object.username }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+
+
+  <div class="row">
+        <div class="col-md-12">
+
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="{{ object.foto.icon.url }}" alt="User profile picture">
+
+              <h3 class="profile-username text-center">{{ object.get_full_name }}</h3>
+
+              <p class="text-muted text-center">{{ object.cargo }}</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Nro. cédula de identidad: </b> {{ object.nacionalidad }}-{{ object.cedula }}
+                </li>
+                 <li class="list-group-item">
+                  <b>Sexo: </b> {{ object.genero}}
+                </li>
+                <li class="list-group-item">
+                  <b>Correo electrónico:</b>{{ object.email }}
+                </li>
+                <li class="list-group-item">
+                  <b>Fecha de nacimiento:</b> {{ object.fechaNacimiento }}
+                </li>
+                <li class="list-group-item">
+                  <b>Fecha de Ingreso:</b>{{ object.fechaIngreso }}
+                </li>
+                <li class="list-group-item">
+                  <b>Departamento:</b> {{ object.departamento }}
+                </li>
+                <li class="list-group-item">
+                  <b>Dirección:</b> {{ object.direccion }}
+                </li>
+                <li class="list-group-item">
+                  <b>Teléfono celular:</b> {{ object.departamento }}
+                </li>
+                <li class="list-group-item">
+                  <b>Estado:</b> {{ object.estado }}
+                </li>
+                <li class="list-group-item">
+                  <b>Tipo de personal:</b> {{ object.tipo_personal }}
+                </li>
+
+              </ul>
+
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+  </div>
+
+
+</div>
+{% endblock content %}
+

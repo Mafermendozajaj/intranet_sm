@@ -43,3 +43,47 @@ class UserListView(LoginRequiredMixin, ListView):
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
     slug_url_kwarg = 'username'
+
+class EmpleadoListView(LoginRequiredMixin, PaginationMixin, ListView ):
+    model = Empleado
+    # These next two lines tell the view to index lookups by username
+    paginate_by = 50
+
+    page = {
+        'title': 'Intranet',
+        'subtitle': 'listado'
+    }
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpleadoListView, self).get_context_data(**kwargs)
+        context['page'] = self.page
+        return context
+
+
+class EmpleadoUpdateView(LoginRequiredMixin, UpdateView):
+
+    fields = [
+        'departamento',
+        'nacionalidad',
+        'cedula',
+        'first_name',
+        'last_name',
+        'genero',
+        'fechaNacimiento',
+        'fechaIngreso',
+        'fechaEgreso',
+        'direccion',
+        'telefonoCelular',
+        'email',
+        'estado',
+        'cargo',
+        'foto',
+        'tipo_personal'
+    ]
+
+    # we already imported User in the view code above, remember?
+    model = Empleado
+
+    # send the user back to their own page after a successful update
+    def get_success_url(self):
+        return reverse('users:empleado_list')
