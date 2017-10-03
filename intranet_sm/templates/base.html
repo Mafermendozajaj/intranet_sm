@@ -387,6 +387,8 @@
             <ul class="sidebar-menu">
                 {% include "menu_head.html" %}
 
+                {% include "menu_administrator.html" %}
+
                 {% for group in user.groups.all %}
                     {% if group.name == 'Administrador' %}
                         {% include "menu_admin.html" %}

@@ -60,6 +60,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     'intranet_sm.users.apps.UsersConfig',
+    'intranet_sm.administrator_app.apps.AdministratorAppConfig',
     # Your stuff: custom apps go here
 ]
 

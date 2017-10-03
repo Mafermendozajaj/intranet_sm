@@ -43,10 +43,7 @@ pytz==2017.2
 django-redis==4.8.0
 redis>=2.10.5
 
-
 celery==3.1.25
-
-
 
 
 # Your custom requirements go here
@@ -54,3 +51,4 @@ easy-thumbnails==2.4.1
 django-pure-pagination==0.3.0
 djangorestframework==3.6.3
 django-import-export==0.5.1
+django-braces==1.11.0

@@ -18,7 +18,8 @@ urlpatterns = [
     url(r'^users/', include('intranet_sm.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
 
-    # Your stuff: custom urls includes go here
+    # Administator app
+    url(r'^administrator/', include('intranet_sm.administrator_app.urls', namespace='administrator')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

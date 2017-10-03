@@ -1,3 +1,17 @@
+
+Generar un virtual env
+
+virtualenv -p python3 venv_intranet_sm
+
+Activar el virtual env
+
+En linux:
+source venv_intranet_sm/bin/activate
+
+Montar los requerimientos ejecutando:
+
+pip install -r requiriments/local
+
 Generacion de la base de datos
 
 createuser --createdb intranet_sm
@@ -10,7 +24,6 @@ Hacer las migraciones
 ./manage.py migrate
 
 Crea un usuario adminitrador
-
 
 ./manage.py createsuperuser
 
