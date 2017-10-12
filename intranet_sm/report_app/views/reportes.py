@@ -7,18 +7,18 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 from pure_pagination.mixins import PaginationMixin
 
-from intranet_sm.users.models import Reporte
+from intranet_sm.report_app.models import Reporte
 
 
 class ReporteListView(LoginRequiredMixin, PaginationMixin, ListView):
 
     model = Reporte
-    template_name = 'administrator_app/reportes/reporte_list.html'
+    template_name = 'report_app/reportes/reporte_list.html'
     context_object_name = 'reporte_list'
     paginate_by = 50
 
     page = {
-        'title': 'Administrador',
+        'title': 'Reporte',
         'subtitle': 'reportes'
     }
 
@@ -31,14 +31,17 @@ class ReporteListView(LoginRequiredMixin, PaginationMixin, ListView):
 class ReporteCreateView(LoginRequiredMixin, CreateView):
 
     fields = [
-        'reporte',
+        'asistente','observador','proyecto','tipo_reporte','telescopio',
+        'fecha_obs','datos','observadores','horas_trabajadas','hp_clima',
+        'hp_instrumentos','hp_software','comentarios','vacio_camara',
+        'vacio_ls','vacio_li','enviado'
     ]
 
     model = Reporte
-    template_name = 'administrator_app/reportes/reporte_form.html'
+    template_name = 'report_app/reportes/reporte_form.html'
 
     page = {
-        'title': 'Administrador',
+        'title': 'Reporte',
         'subtitle': 'edicion de reportes'
     }
 
@@ -49,7 +52,7 @@ class ReporteCreateView(LoginRequiredMixin, CreateView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('administrator:reporte_list')
+        return reverse('report:reporte_list')
 
 
 class ReporteDetailView(LoginRequiredMixin, DetailView):
@@ -59,10 +62,10 @@ class ReporteDetailView(LoginRequiredMixin, DetailView):
     ]
 
     model = Reporte
-    template_name = 'administrator_app/reportes/reporte_detail.html'
+    template_name = 'report_app/reportes/reporte_detail.html'
 
     page = {
-        'title': 'Administrador',
+        'title': 'Reporte',
         'subtitle': 'edicion de reportes'
     }
 
@@ -79,10 +82,10 @@ class ReporteUpdateView(LoginRequiredMixin, UpdateView):
     ]
 
     model = Reporte
-    template_name = 'administrator_app/reportes/reporte_form.html'
+    template_name = 'report_app/reportes/reporte_form.html'
 
     page = {
-        'title': 'Administrador',
+        'title': 'Reporte',
         'subtitle': 'edicion de reportes'
     }
 
@@ -93,7 +96,7 @@ class ReporteUpdateView(LoginRequiredMixin, UpdateView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('administrator:reporte_list')
+        return reverse('report:reporte_list')
 
 
 class ReporteDeleteView(LoginRequiredMixin, DeleteView):
@@ -103,10 +106,10 @@ class ReporteDeleteView(LoginRequiredMixin, DeleteView):
     ]
 
     model = Reporte
-    template_name = 'administrator_app/reportes/reporte_confirm_delete.html'
+    template_name = 'report_app/reportes/reporte_confirm_delete.html'
 
     page = {
-        'title': 'Administrador',
+        'title': 'Reporte',
         'subtitle': 'edicion de reportes'
     }
 
@@ -117,5 +120,5 @@ class ReporteDeleteView(LoginRequiredMixin, DeleteView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('administrator:reporte_list')
+        return reverse('report:reporte_list')
 

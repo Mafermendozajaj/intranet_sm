@@ -21,6 +21,9 @@ urlpatterns = [
     # Administator app
     url(r'^administrator/', include('intranet_sm.administrator_app.urls', namespace='administrator')),
 
+    #Report app
+    url(r'^report/', include('intranet_sm.report_app.urls', namespace='report')),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -395,6 +395,14 @@
                     {% endif %}
                 {% endfor %}
 
+                {% include "menu_report.html" %}
+
+                {% for group in user.groups.all %}
+                    {% if group.name == 'Reporte' %}
+                        {% include "menu_admin.html" %}
+                    {% endif %}
+                {% endfor %}
+
                 {% for group in user.groups.all %}
                     {% if group.name == 'Empleados' %}
                         {% include "menu_users.html" %}

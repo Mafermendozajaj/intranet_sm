@@ -7,19 +7,19 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 from pure_pagination.mixins import PaginationMixin
 
-from intranet_sm.users.models import Telescopio
+from intranet_sm.report_app.models import Telescopio
 
 
 class TelescopioListView(LoginRequiredMixin, PaginationMixin, ListView):
 
     model = Telescopio
-    template_name = 'administrator_app/telescopioss/telescopio_list.html'
+    template_name = 'report_app/telescopios/telescopio_list.html'
     context_object_name = 'telescopio_list'
     paginate_by = 50
 
     page = {
-        'title': 'Administrador',
-        'subtitle': 'telescopioss'
+        'title': 'Telescopio',
+        'subtitle': 'telescopios'
     }
 
     def get_context_data(self, **kwargs):
@@ -35,11 +35,11 @@ class TelescopioCreateView(LoginRequiredMixin, CreateView):
     ]
 
     model = Telescopio
-    template_name = 'administrator_app/telescopioss/telescopio_form.html'
+    template_name = 'report_app/telescopios/telescopio_form.html'
 
     page = {
-        'title': 'Administrador',
-        'subtitle': 'edicion de telescopioss'
+        'title': 'Telescopio',
+        'subtitle': 'edicion de telescopios'
     }
 
     def get_context_data(self, **kwargs):
@@ -49,7 +49,7 @@ class TelescopioCreateView(LoginRequiredMixin, CreateView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('administrator:telescopio_list')
+        return reverse('report:telescopio_list')
 
 
 class TelescopioDetailView(LoginRequiredMixin, DetailView):
@@ -59,11 +59,11 @@ class TelescopioDetailView(LoginRequiredMixin, DetailView):
     ]
 
     model = Telescopio
-    template_name = 'administrator_app/telescopioss/telescopio_detail.html'
+    template_name = 'report_app/telescopios/telescopio_detail.html'
 
     page = {
-        'title': 'Administrador',
-        'subtitle': 'edicion de telescopioss'
+        'title': 'Telescopio',
+        'subtitle': 'edicion de telescopios'
     }
 
     def get_context_data(self, **kwargs):
@@ -79,11 +79,11 @@ class TelescopioUpdateView(LoginRequiredMixin, UpdateView):
     ]
 
     model = Telescopio
-    template_name = 'administrator_app/telescopioss/telescopio_form.html'
+    template_name = 'report_app/telescopios/telescopio_form.html'
 
     page = {
-        'title': 'Administrador',
-        'subtitle': 'edicion de telescopioss'
+        'title': 'Telescopio',
+        'subtitle': 'edicion de telescopios'
     }
 
     def get_context_data(self, **kwargs):
@@ -93,7 +93,7 @@ class TelescopioUpdateView(LoginRequiredMixin, UpdateView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('administrator:telescopio_list')
+        return reverse('report:telescopio_list')
 
 
 class TelescopioDeleteView(LoginRequiredMixin, DeleteView):
@@ -103,11 +103,11 @@ class TelescopioDeleteView(LoginRequiredMixin, DeleteView):
     ]
 
     model = Telescopio
-    template_name = 'administrator_app/telescopioss/telescopio_confirm_delete.html'
+    template_name = 'report_app/telescopios/telescopio_confirm_delete.html'
 
     page = {
-        'title': 'Administrador',
-        'subtitle': 'edicion de telescopioss'
+        'title': 'Telescopio',
+        'subtitle': 'edicion de telescopios'
     }
 
     def get_context_data(self, **kwargs):
@@ -117,5 +117,5 @@ class TelescopioDeleteView(LoginRequiredMixin, DeleteView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('administrator:telescopio_list')
+        return reverse('report:telescopio_list')
 

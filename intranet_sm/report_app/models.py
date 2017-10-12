@@ -24,7 +24,7 @@ class Telescopio(models.Model):
 
 
 class Reporte(models.Model):
-    empleado = models.ForeignKey(Empleado)
+    asistente = models.ForeignKey(Empleado)
     observador = models.CharField('Observador',max_length=100, null=True, blank=True)
     proyecto = models.ForeignKey(Proyecto)
     tipo_reporte = models.CharField('Tipo de reporte', max_length=2,choices=TIPO_REPORTE_CHOICES, default='A')
@@ -43,9 +43,6 @@ class Reporte(models.Model):
     enviado = models.BooleanField(default=False)
     fecha_reg = models.DateField('Fecha de registro', auto_now_add=True)
     ult_act = models.DateField('Ultima actualización', auto_now=True)
-
-#Que colocar para mostrar en reporte en Respuesta    def __str__(self):
-#        return u'%s' % (self.????)
 
 
 class Respuesta(models.Model):

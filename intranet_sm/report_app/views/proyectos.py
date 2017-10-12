@@ -7,18 +7,18 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 from pure_pagination.mixins import PaginationMixin
 
-from intranet_sm.users.models import Proyecto
+from intranet_sm.report_app.models import Proyecto
 
 
 class ProyectoListView(LoginRequiredMixin, PaginationMixin, ListView):
 
     model = Proyecto
-    template_name = 'administrator_app/proyectos/proyecto_list.html'
+    template_name = 'report_app/proyectos/proyecto_list.html'
     context_object_name = 'proyecto_list'
     paginate_by = 50
 
     page = {
-        'title': 'Administrador',
+        'title': 'Proyecto',
         'subtitle': 'proyectos'
     }
 
@@ -31,14 +31,14 @@ class ProyectoListView(LoginRequiredMixin, PaginationMixin, ListView):
 class ProyectoCreateView(LoginRequiredMixin, CreateView):
 
     fields = [
-        'proyecto',
+        'proyecto','cod_proyecto'
     ]
 
     model = Proyecto
-    template_name = 'administrator_app/proyectos/proyecto_form.html'
+    template_name = 'report_app/proyectos/proyecto_form.html'
 
     page = {
-        'title': 'Administrador',
+        'title': 'Proyecto',
         'subtitle': 'edicion de proyectos'
     }
 
@@ -49,20 +49,20 @@ class ProyectoCreateView(LoginRequiredMixin, CreateView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('administrator:proyecto_list')
+        return reverse('report:proyecto_list')
 
 
 class ProyectoDetailView(LoginRequiredMixin, DetailView):
 
     fields = [
-        'proyecto',
+        'proyecto','cod_proyecto'
     ]
 
     model = Proyecto
-    template_name = 'administrator_app/proyectos/proyecto_detail.html'
+    template_name = 'report_app/proyectos/proyecto_detail.html'
 
     page = {
-        'title': 'Administrador',
+        'title': 'Proyecto',
         'subtitle': 'edicion de proyectos'
     }
 
@@ -75,14 +75,14 @@ class ProyectoDetailView(LoginRequiredMixin, DetailView):
 class ProyectoUpdateView(LoginRequiredMixin, UpdateView):
 
     fields = [
-        'proyecto',
+        'proyecto','cod_proyecto'
     ]
 
     model = Proyecto
-    template_name = 'administrator_app/proyectos/proyecto_form.html'
+    template_name = 'report_app/proyectos/proyecto_form.html'
 
     page = {
-        'title': 'Administrador',
+        'title': 'Proyecto',
         'subtitle': 'edicion de proyectos'
     }
 
@@ -93,20 +93,20 @@ class ProyectoUpdateView(LoginRequiredMixin, UpdateView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('administrator:proyecto_list')
+        return reverse('report:proyecto_list')
 
 
 class ProyectoDeleteView(LoginRequiredMixin, DeleteView):
 
     fields = [
-        'proyecto',
+        'proyecto','cod_proyecto'
     ]
 
     model = Proyecto
-    template_name = 'administrator_app/proyectos/proyecto_confirm_delete.html'
+    template_name = 'report_app/proyectos/proyecto_confirm_delete.html'
 
     page = {
-        'title': 'Administrador',
+        'title': 'Proyecto',
         'subtitle': 'edicion de proyectos'
     }
 
@@ -117,5 +117,5 @@ class ProyectoDeleteView(LoginRequiredMixin, DeleteView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('administrator:proyecto_list')
+        return reverse('report:proyecto_list')
 
