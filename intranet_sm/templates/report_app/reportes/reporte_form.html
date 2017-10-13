@@ -1,7 +1,13 @@
 {% extends "base.html" %}
+{% load staticfiles i18n %}
 {% load crispy_forms_tags %}
 
 {% block title %}Edición de reportes{% endblock %}
+
+{% block css %}     
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+{% endblock css %}
+
 
 {% block content-header %}
     <h1>
@@ -16,7 +22,7 @@
 
     <div class="row">
         <!-- left column -->
-        <div class="col-sm-12">
+        <div class="col-sm-10">
             <!-- general form elements -->
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -30,6 +36,8 @@
                         {% csrf_token %}
                         {{ form|crispy }}
                         <div class="control-group">
+                            <br>
+                            <br>
                             <div class="controls">
                                 <button class="btn btn-success" type="submit">
                                     <i class="icon-ok icon-white"></i> Grabar
@@ -48,3 +56,23 @@
 
 </div>
 {% endblock %}
+
+{% block js %}
+    <script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+
+    <script>
+      jQuery(document).ready(function() {
+
+        $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+          autoclose: true,
+          keyboardNavigation : true ,
+          //daysOfWeekDisabled : [1],
+          //language: "es"
+        }).val();
+
+      });
+    </script>
+
+
+{% endblock js %}
