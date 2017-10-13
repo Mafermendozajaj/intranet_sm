@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from pure_pagination.mixins import PaginationMixin
 
 from intranet_sm.report_app.models import Reporte
+from intranet_sm.report_app.forms.reporte_form import ReporteForm
 
 
 class ReporteListView(LoginRequiredMixin, PaginationMixin, ListView):
@@ -30,14 +31,8 @@ class ReporteListView(LoginRequiredMixin, PaginationMixin, ListView):
 
 class ReporteCreateView(LoginRequiredMixin, CreateView):
 
-    fields = [
-        'asistente','observador','proyecto','tipo_reporte','telescopio',
-        'fecha_obs','datos','observadores','horas_trabajadas','hp_clima',
-        'hp_instrumentos','hp_software','comentarios','vacio_camara',
-        'vacio_ls','vacio_li','enviado'
-    ]
-
     model = Reporte
+    form_class = ReporteForm
     template_name = 'report_app/reportes/reporte_form.html'
 
     page = {
@@ -58,7 +53,10 @@ class ReporteCreateView(LoginRequiredMixin, CreateView):
 class ReporteDetailView(LoginRequiredMixin, DetailView):
 
     fields = [
-        'reporte',
+        'asistente','observador','proyecto','tipo_reporte','telescopio',
+        'fecha_obs','datos','observadores','horas_trabajadas','hp_clima',
+        'hp_instrumentos','hp_software','comentarios','vacio_camara',
+        'vacio_ls','vacio_li','enviado',
     ]
 
     model = Reporte
@@ -78,7 +76,10 @@ class ReporteDetailView(LoginRequiredMixin, DetailView):
 class ReporteUpdateView(LoginRequiredMixin, UpdateView):
 
     fields = [
-        'reporte',
+        'asistente','observador','proyecto','tipo_reporte','telescopio',
+        'fecha_obs','datos','observadores','horas_trabajadas','hp_clima',
+        'hp_instrumentos','hp_software','comentarios','vacio_camara',
+        'vacio_ls','vacio_li','enviado',
     ]
 
     model = Reporte
@@ -102,7 +103,10 @@ class ReporteUpdateView(LoginRequiredMixin, UpdateView):
 class ReporteDeleteView(LoginRequiredMixin, DeleteView):
 
     fields = [
-        'reporte',
+        'asistente','observador','proyecto','tipo_reporte','telescopio',
+        'fecha_obs','datos','observadores','horas_trabajadas','hp_clima',
+        'hp_instrumentos','hp_software','comentarios','vacio_camara',
+        'vacio_ls','vacio_li','enviado',
     ]
 
     model = Reporte

@@ -15,7 +15,7 @@
 
 
   <div class="row">
-        <div class="col-xs-11">
+        <div class="col-xs-10">
 
           <!-- Profile Image -->
           <div class="box box-primary">
@@ -37,7 +37,14 @@
                   <b>Id: </b> {{ object.id }}
                 </li>
                  <li class="list-group-item">
-                  <b>Tipo de reporte: </b> {{ object.tipo_reporte}}
+                  <b>Tipo de reporte: </b> 
+                  {% if object.tipo_reporte == 'A' %}
+                    Reporte A
+                  {% elif object.tipo_reporte == 'B' %}
+                    Reporte B
+                  {% else %}
+                    Reporte C
+                  {% endif %}
                 </li>
                 <li class="list-group-item">
                   <b>Empleado: </b> {{ object.empleado}}
@@ -55,7 +62,12 @@
                   <b>Fecha de observación: </b> {{ object.fecha_obs}}
                 </li>
                 <li class="list-group-item">
-                  <b>Datos: </b> {{ object.datos}}
+                  <b>Datos: </b>
+                  {% if object.datos == 'False' %}
+                    No
+                  {% else %}
+                    Si
+                  {% endif %}
                 </li>
                 <li class="list-group-item">
                   <b>Observadores: </b> {{ object.observadores}}
@@ -82,7 +94,12 @@
                   <b>Vacio ls: </b> {{ object.vacio_ls}}
                 </li>
                 <li class="list-group-item">
-                  <b>Enviado: </b> {{ object.enviado}}
+                  <b>Enviado: </b> 
+                  {% if object.enviado == 'False' %}
+                    No
+                  {% else %}
+                    Si
+                  {% endif %}
                 </li>
                 <li class="list-group-item">
                   <b>Fecha de registro: </b> {{ object.fecha_reg}}

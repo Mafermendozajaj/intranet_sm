@@ -31,7 +31,7 @@ class Reporte(models.Model):
     telescopio = models.ForeignKey(Telescopio)
     fecha_obs = models.DateField('Fecha de observacion')
     datos = models.BooleanField(default=True)
-    observadores = models.CharField('Observadores', max_length=100, null=True, blank=True, default='')
+    observadores = models.CharField('Observadores', max_length=100, null=True, blank=True, default='', help_text="Introduzca los nombres de los observadores")
     horas_trabajadas = models.IntegerField()
     hp_clima = models.DecimalField('HP Clima', max_digits=4, decimal_places=2)
     hp_instrumentos = models.DecimalField('HP instrumentos', max_digits=4, decimal_places=2)

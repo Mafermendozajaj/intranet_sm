@@ -15,12 +15,12 @@
 
 
 {% block content %}
-
+<div class="container">
 
     <!-- start: PAGE CONTENT -->
 
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-10">
 
             <!-- start: FROM -->
             <form action="" method="post">{% csrf_token %}
@@ -37,8 +37,8 @@
                     <table class="table table-bordered">
 
                         <tr>
-                            <td>Reporte:</td>
-                            <td>{{object.reporte}}</td>
+                            <td>N° Reporte:</td>
+                            <td>{{object.id}}</td>
                         </tr>
                         <tr>
                             <td>Tipo de reporte:</td>
@@ -71,7 +71,7 @@
     </div>
 
     <!-- end: PAGE CONTENT-->
-
+</div>
 {% endblock content %}
 
 {% block js %}
