@@ -14,7 +14,7 @@ class ReporteForm(forms.ModelForm):
         	'hp_software', 'vacio_camara', 'vacio_ls', 'vacio_li', 'enviado', 'comentarios']
 
         widgets = {
-            'observadores': forms.TextInput(attrs={'class': 'input-xlarge', 'placeholder': 'Observadores'}),
+
             'fecha_obs': forms.DateInput(format=('%d/%m/%Y'), attrs={'class': 'datepicker', 'placeholder': 'Seleccione una fecha'}),
             'comentarios': forms.Textarea(attrs={'placeholder': 'Comentarios'}),
         }
