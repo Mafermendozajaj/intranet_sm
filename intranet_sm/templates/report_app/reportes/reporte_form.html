@@ -76,20 +76,21 @@
     </script>
 
 <script>
-    $(document).ready(function(){
-            $(".div_id_telescopio").click(function(){
-              
-                var valor = $(this).val();
-              
-                if(valor == '1'){
-                    $("#div_id_telescopio").css("display", "block");
-                    $("#div_id_vacio_camara").css("display", "none");
-                }else{
-                    $("#div_id_telescopio").css("display", "none");
-                    $("#div_id_vacio_camara").css("display", "block");
-                }
-        });
+$(function() {
+    $('#div_id_vacio_camara').hide(); 
+    $('#id_telescopio').change(function(){
+        if($('#id_telescopio').val() == '1') {
+            $('#div_id_vacio_camara').show();
+            $('#div_id_vacio_ls').show();
+            $('#div_id_vacio_li').show();
+        } else {
+            $('#div_id_vacio_camara').hide();
+            $('#div_id_vacio_ls').hide();
+            $('#div_id_vacio_li').hide();
+            
+        } 
     });
+});
 </script>
 
 {% endblock js %}

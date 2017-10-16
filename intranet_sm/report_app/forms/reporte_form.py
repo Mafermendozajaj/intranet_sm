@@ -9,7 +9,7 @@ class ReporteForm(forms.ModelForm):
 
     class Meta:
         model = Reporte
-        fields = ['tipo_reporte', 'observadores','fecha_obs', 'asistente', 'proyecto',
+        fields = ['tipo_reporte', 'observador', 'observadores','fecha_obs', 'asistente', 'proyecto',
         	'telescopio', 'datos', 'horas_trabajadas', 'hp_clima', 'hp_instrumentos',
         	'hp_software', 'vacio_camara', 'vacio_ls', 'vacio_li', 'enviado', 'comentarios']
 

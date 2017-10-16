@@ -25,30 +25,30 @@ class Telescopio(models.Model):
 
 
 class Reporte(models.Model):
-    asistente = models.ForeignKey(Empleado)
+    asistente = models.ForeignKey(Empleado, help_text="Seleccione un asistente")
     observador = models.CharField(
-        'Observador', max_length=100, null=True, blank=True)
-    proyecto = models.ForeignKey(Proyecto)
+        'Observador', max_length=100, null=True, blank=True, help_text="Introduzca el nombre del observador")
+    proyecto = models.ForeignKey(Proyecto, help_text="Seleccione el proyecto")
     tipo_reporte = models.CharField(
-        'Tipo de reporte', max_length=2, choices=TIPO_REPORTE_CHOICES, default='A')
-    telescopio = models.ForeignKey(Telescopio)
-    fecha_obs = models.DateField('Fecha de observacion')
+        'Tipo de reporte', max_length=2, choices=TIPO_REPORTE_CHOICES, default='A', help_text="Seleccione el tipo de reporte")
+    telescopio = models.ForeignKey(Telescopio, help_text="Seleccione el telescopio")
+    fecha_obs = models.DateField('Fecha de observacion', help_text="Seleccione la fecha de la observación")
     datos = models.BooleanField(default=True)
     observadores = models.CharField('Observadores', max_length=100, null=True,
                                     blank=True, default='', help_text="Introduzca los nombres de los observadores")
-    horas_trabajadas = models.IntegerField()
-    hp_clima = models.DecimalField('HP Clima', max_digits=4, decimal_places=2)
+    horas_trabajadas = models.IntegerField('Horas trabajadas', help_text="Introducir horas trabajadas")
+    hp_clima = models.DecimalField('HP Clima', max_digits=4, decimal_places=2, default=0.0, help_text="Introducir en decimal")
     hp_instrumentos = models.DecimalField(
-        'HP instrumentos', max_digits=4, decimal_places=2)
+        'HP instrumentos', max_digits=4, decimal_places=2, default=0.0, help_text="Introducir en decimal")
     hp_software = models.DecimalField(
-        'HP Software', max_digits=4, decimal_places=2)
+        'HP Software', max_digits=4, decimal_places=2, default=0.0, help_text="Introducir en decimal")
     comentarios = models.TextField('Comentarios')
     vacio_camara = models.DecimalField(
-        'Vacio de cámara', max_digits=6, decimal_places=2, default=0.0)
+        'Vacio de cámara', max_digits=6, decimal_places=2, default=0.0, help_text="Introducir en decimal")
     vacio_ls = models.DecimalField(
-        'Vacio de ls', max_digits=6, decimal_places=2, default=0.0)
+        'Vacio de ls', max_digits=6, decimal_places=2, default=0.0, help_text="Introducir en decimal")
     vacio_li = models.DecimalField(
-        'Vacio de li', max_digits=6, decimal_places=2, default=0.0)
+        'Vacio de li', max_digits=6, decimal_places=2, default=0.0, help_text="Introducir en decimal")
     enviado = models.BooleanField(default=False)
     fecha_reg = models.DateField('Fecha de registro', auto_now_add=True)
     ult_act = models.DateField('Ultima actualización', auto_now=True)
