@@ -1,0 +1,1010 @@
+[
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 1,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 40,
+        "id_user": 1
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 2,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 70,
+        "id_user": 2
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 3,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 105,
+        "id_user": 3
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 4,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 24,
+        "id_user": 4
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 5,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 36,
+        "id_user": 5
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 6,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 207,
+        "id_user": 6
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 7,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 93,
+        "id_user": 7
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 8,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 80,
+        "id_user": 8
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 9,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 177,
+        "id_user": 9
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 10,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 90,
+        "id_user": 10
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 11,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 87,
+        "id_user": 11
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 12,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 95,
+        "id_user": 12
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 13,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 104,
+        "id_user": 13
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 14,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 189,
+        "id_user": 14
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 15,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 176,
+        "id_user": 15
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 16,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 91,
+        "id_user": 16
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 17,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 85,
+        "id_user": 17
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 18,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 235,
+        "id_user": 18
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 19,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 181,
+        "id_user": 19
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 20,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 41,
+        "id_user": 20
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 21,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 108,
+        "id_user": 21
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 22,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 45,
+        "id_user": 22
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 23,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 86,
+        "id_user": 23
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 24,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 196,
+        "id_user": 24
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 25,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 63,
+        "id_user": 25
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 26,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 47,
+        "id_user": 26
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 27,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 15,
+        "id_user": 27
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 28,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 88,
+        "id_user": 28
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 29,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 213,
+        "id_user": 29
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 30,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 102,
+        "id_user": 30
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 31,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 67,
+        "id_user": 31
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 32,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 98,
+        "id_user": 32
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 33,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 42,
+        "id_user": 33
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 34,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 29,
+        "id_user": 34
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 35,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 72,
+        "id_user": 35
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 36,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 53,
+        "id_user": 36
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 37,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 35,
+        "id_user": 37
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 38,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 209,
+        "id_user": 38
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 39,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 3,
+        "id_user": 39
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 40,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 82,
+        "id_user": 40
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 41,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 121,
+        "id_user": 41
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 42,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 193,
+        "id_user": 42
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 43,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 10,
+        "id_user": 43
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 44,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 204,
+        "id_user": 44
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 45,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 54,
+        "id_user": 45
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 46,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 26,
+        "id_user": 46
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 47,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 69,
+        "id_user": 47
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 48,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 20,
+        "id_user": 48
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 49,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 16,
+        "id_user": 49
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 50,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 58,
+        "id_user": 50
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 51,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 11,
+        "id_user": 51
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 52,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 122,
+        "id_user": 52
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 53,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 57,
+        "id_user": 53
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 54,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 217,
+        "id_user": 54
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 55,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 116,
+        "id_user": 55
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 56,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 21,
+        "id_user": 56
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 57,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 76,
+        "id_user": 57
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 58,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 215,
+        "id_user": 58
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 59,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 205,
+        "id_user": 59
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 60,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 164,
+        "id_user": 60
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 61,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 13,
+        "id_user": 61
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 62,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 92,
+        "id_user": 62
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 63,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 43,
+        "id_user": 63
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 64,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 44,
+        "id_user": 64
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 65,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 5,
+        "id_user": 65
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 66,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 112,
+        "id_user": 66
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 67,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 203,
+        "id_user": 67
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 68,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 89,
+        "id_user": 68
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 69,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 113,
+        "id_user": 69
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 70,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 68,
+        "id_user": 70
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 71,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 111,
+        "id_user": 71
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 72,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 100,
+        "id_user": 72
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 73,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 184,
+        "id_user": 73
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 74,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 214,
+        "id_user": 74
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 75,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 49,
+        "id_user": 75
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 76,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 188,
+        "id_user": 76
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 77,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 115,
+        "id_user": 77
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 78,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 33,
+        "id_user": 78
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 79,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 170,
+        "id_user": 79
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 80,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 166,
+        "id_user": 80
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 81,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 75,
+        "id_user": 82
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 82,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 178,
+        "id_user": 83
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 83,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 65,
+        "id_user": 84
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 84,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 14,
+        "id_user": 85
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 85,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 202,
+        "id_user": 86
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 86,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 169,
+        "id_user": 87
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 87,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 186,
+        "id_user": 88
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 88,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 172,
+        "id_user": 89
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 89,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 17,
+        "id_user": 90
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 90,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 243,
+        "id_user": 91
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 91,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 233,
+        "id_user": 92
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 92,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 37,
+        "id_user": 94
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 93,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 114,
+        "id_user": 95
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 94,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 101,
+        "id_user": 96
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 95,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 212,
+        "id_user": 97
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 96,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 52,
+        "id_user": 98
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 97,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 216,
+        "id_user": 99
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 98,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 31,
+        "id_user": 100
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 99,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 206,
+        "id_user": 101
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 100,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 210,
+        "id_user": 102
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 101,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 246,
+        "id_user": 103
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 102,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 50,
+        "id_user": 104
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 103,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 127,
+        "id_user": 105
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 104,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 257,
+        "id_user": 107
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 105,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 258,
+        "id_user": 108
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 106,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 260,
+        "id_user": 109
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 107,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 249,
+        "id_user": 110
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 108,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 234,
+        "id_user": 111
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 109,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 261,
+        "id_user": 112
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 110,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 194,
+        "id_user": 113
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 111,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 254,
+        "id_user": 114
+    }
+},
+{
+    "model": "asistencia_app.empleadoclientedispositivo",
+    "pk": 112,
+    "fields": {
+        "dispositivo": 1,
+        "empleado": 180,
+        "id_user": 115
+    }
+}
+]

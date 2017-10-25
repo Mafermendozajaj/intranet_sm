@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Principal{% endblock %}
+
+{% block page_title %}Principal{% endblock page_title %}
+
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/select2/select2.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/DataTables/media/css/DT_bootstrap.css' %}" />
+
+{% endblock css %}
+
+
+{% block content %}
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div> <!-- /.modal-content -->
+        </div> <!-- /.modal-dialog -->
+    </div> <!-- /.modal -->
+
+    <!-- start: PAGE CONTENT -->
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <!-- start: DYNAMIC TABLE PANEL -->
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-md-12 space20">
+
+                                 <a data-toggle="modal" class="btn btn-info" href='{% url 'empleados_export_global' %}' data-target="#myModal">
+                                    Exportar a excel <i class="fa clip-calendar-3"></i>
+                                </a>
+
+                            </div>
+                        </div>
+
+
+
+                        <table class="table table-striped table-bordered table-hover table-full-width" id="dias_list">
+                            <thead>
+                                <tr>
+                                    <th>Empresa</th>
+                                    <th>Empleado ID</th>
+                                    <th>Nombre Disp.</th>
+                                    <th>Ubicación</th>
+                                    <th class="hidden-xs">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               {% for marca in object_list %}
+                                <tr>
+                                    <td>{{ marca.dispositivo.empresa}}</td>
+                                    <td>{{ marca.id_user}}</td>
+                                    <td>{{ marca.dispositivo.nombre}}</td>
+                                    <td class="hidden-xs">{{ marca.dispositivo.ubicacion}}</td>
+                                    <td>{{ marca.fecha|date:"D d/m/Y H:i" }}</td>
+
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% include "_pagination.html" %}
+                    </div>
+                </div>
+            <!-- end: DYNAMIC TABLE PANEL -->
+
+        </div>
+    </div>
+
+    <!-- end: PAGE CONTENT-->
+
+{% endblock content %}
+
+{% block js %}
+
+    <script type="text/javascript" src="{% static 'plugins/bootbox/bootbox.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/jquery-mockjax/jquery.mockjax.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/select2/select2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/DataTables/media/js/jquery.dataTables.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/DataTables/media/js/DT_bootstrap.js' %}"></script>
+
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.es.js' %}"></script>
+
+    <script src="{% static 'plugins/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'plugins/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+
+
+    <script>
+      jQuery(document).ready(function() {
+        Main.init();
+
+      });
+    </script>
+
+{% endblock js %}

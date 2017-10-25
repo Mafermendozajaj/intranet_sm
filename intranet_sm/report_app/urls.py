@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from intranet_sm.report_app.views import reportes, telescopio, proyectos
+from intranet_sm.report_app.views import reportes, telescopio, proyectos, respuesta
 
 urlpatterns = [
     url(
@@ -94,5 +94,36 @@ urlpatterns = [
         name='proyecto_delete'
     ),
 
+
+#Respuesta
+    url(
+        regex=r'^respuesta/create/(?P<reporte_id>\d+)/$',
+        view=respuesta.RespuestaCreateView.as_view(),
+        name='respuesta_create'
+    ),
+
+        url(
+        regex=r'^respuesta/$',
+        view=respuesta.RespuestaListView.as_view(),
+        name='respuesta_list'
+    ),
+
+    url(
+        regex=r'^respuesta/view/(?P<pk>\d+)$',
+        view=respuesta.RespuestaDetailView.as_view(),
+        name='respuesta_view'
+    ),
+
+    url(
+        regex=r'^respuesta/update/(?P<pk>\d+)$',
+        view=respuesta.RespuestaUpdateView.as_view(),
+        name='respuesta_update'
+    ),
+
+    url(
+        regex=r'^respuesta/delete/(?P<reporte_id>\d+)/(?P<pk>\d+)$',
+        view=respuesta.RespuestaDeleteView.as_view(),
+        name='respuesta_delete'
+    ),
 
 ]

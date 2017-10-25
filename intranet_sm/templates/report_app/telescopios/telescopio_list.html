@@ -2,6 +2,9 @@
 {% load static i18n %}
 {% block title %}Usuarios Intranet{% endblock %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins\datatables\dataTables.bootstrap.min-css' %}">
+{% endblock css %}
 
 {% block content-header %}
     <h1>
@@ -13,22 +16,16 @@
 
 {% block content %}
     <div class="container">
+        <ol  class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#">Mantenimiento</a></li>
+        <li class="active">Telescopios</li>
+        </ol>
         <div class="row">
             <div class="col-xs-10">
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Listado de telescopios - Intranet</h3>
-
-                        <div class="box-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control pull-right"
-                                       placeholder="Search">
-
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive ">
@@ -38,13 +35,16 @@
                                                class="btn btn-info">Agregar telescopio <i class="fa fa-plus"></i></a>
 
                         </br></br>
-                        <table class="table table-hover">
+                        <table id="example1" class="table table-bordered table-striped table-hover">
+                            <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Telescopio</th>
                                 <th>Acción</th>
                             </tr>
+                            </thead>
                             {% for rep in telescopio_list %}
+                            <tbody>
                                 <tr>
                                     <td>{{ rep.id }}</td>
                                     <td>{{ rep.telescopio }}</td>   
@@ -68,6 +68,18 @@
                                     </td>
                                 </tr>
                             {% endfor %}
+                            </tbody>
+                            <!--Foot de la tabla-->
+                            <tfoot>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Código proyecto</th>
+                                    <th>Proyecto</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            </tfoot>
                         </table>
                         {% include "_pagination.html" %}
                     </div>
@@ -79,3 +91,24 @@
 
     </div>
 {% endblock content %}
+
+{% block js %}
+
+    <script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/dataTables.bootstrap.min.js' %}"></script>
+
+        <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+              'paging'      : true,
+              'lengthChange': false,
+              'searching'   : false,
+              'ordering'    : true,
+              'info'        : true,
+              'autoWidth'   : false
+            })
+        })
+        </script>
+
+{% endblock js %}

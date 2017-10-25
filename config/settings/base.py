@@ -62,6 +62,9 @@ LOCAL_APPS = [
     'intranet_sm.users.apps.UsersConfig',
     'intranet_sm.administrator_app.apps.AdministratorAppConfig',
     'intranet_sm.report_app.apps.ReportappConfig',
+    'intranet_sm.solicitudes_app.apps.SolicitudesAppConfig',
+    'intranet_sm.asistencia_app.apps.AsistenciaAppConfig',    
+
     # Your stuff: custom apps go here
 ]
 

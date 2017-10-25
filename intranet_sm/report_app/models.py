@@ -8,10 +8,15 @@ TIPO_REPORTE_CHOICES = (
     ('C', 'Reporte C'),
 )
 
+TIPO_DATOS_CHOICES = (
+    ('S', 'Datos Si'),
+    ('N', 'Datos No'),
+    ('SC', 'Solo Calibración'),
+)
 
 class Proyecto (models.Model):
-    proyecto = models.CharField('Proyecto', max_length=255)
-    cod_proyecto = models.CharField(max_length=20)
+    proyecto = models.CharField('Proyecto', max_length=255, help_text="Introduzca el nombre del proyecto")
+    cod_proyecto = models.CharField(max_length=20, help_text="Introduzca el código del proyecto")
 
     def __str__(self):
         return u'%s' % (self.proyecto)
@@ -30,10 +35,11 @@ class Reporte(models.Model):
         'Observador', max_length=100, null=True, blank=True, help_text="Introduzca el nombre del observador")
     proyecto = models.ForeignKey(Proyecto, help_text="Seleccione el proyecto")
     tipo_reporte = models.CharField(
-        'Tipo de reporte', max_length=2, choices=TIPO_REPORTE_CHOICES, default='A', help_text="Seleccione el tipo de reporte")
+        'Tipo de reporte', max_length=55, choices=TIPO_REPORTE_CHOICES, default='A', help_text="Seleccione el tipo de reporte")
     telescopio = models.ForeignKey(Telescopio, help_text="Seleccione el telescopio")
     fecha_obs = models.DateField('Fecha de observacion', help_text="Seleccione la fecha de la observación")
-    datos = models.BooleanField(default=True)
+    datos = models.CharField(
+        'Tipo de datos', max_length=55, choices=TIPO_DATOS_CHOICES, default='S', help_text="Seleccione el tipo de datos")
     observadores = models.CharField('Observadores', max_length=100, null=True,
                                     blank=True, default='', help_text="Introduzca los nombres de los observadores")
     horas_trabajadas = models.IntegerField('Horas trabajadas', help_text="Introducir horas trabajadas")
@@ -55,6 +61,6 @@ class Reporte(models.Model):
 
 
 class Respuesta(models.Model):
-    repuesta = models.TextField('Respuesta')
+    respuesta = models.TextField('Respuesta')
     reporte = models.ForeignKey(Reporte)
     fecha_reg = models.DateField('Fecha de registro', auto_now_add=True)

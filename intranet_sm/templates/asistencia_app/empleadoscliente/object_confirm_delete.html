@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+{% block title %}Principal{% endblock %}
+
+{% block page_title %}Principal{% endblock page_title %}
+
+
+{% block css %}
+{% endblock css %}
+
+
+{% block content %}
+
+    <!-- start: PAGE CONTENT -->
+
+    <div class="row">
+        <div class="col-sm-12">
+            
+            <!-- start: FROM -->
+            <form action="" method="post">{% csrf_token %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    Eliminar registro
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#"> </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+               
+                    <table class="table table-bordered">
+                        
+                        <tr>
+                            <td>Id</td>
+                            <td>{{object.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nombres</td>
+                            <td>{{object.nombre}}, {{object.apellidos}}</td>
+                        </tr>
+                        <tr>
+                            <td>Activo</td>
+                            <td>{{object.activo}}</td>
+                        </tr>
+                        
+                    </table>
+                    
+                    <p>¿ Seguro de eliminar este registro ?</p>
+
+                    <a href="" onclick="document.forms[0].submit();return false;" class="btn btn btn-danger">
+                    <i class="fa fa-trash-o"></i> Eliminar</a> 
+                    <a href="{% url 'empleadoscliente_list' %}" class="btn btn-primary"><i class="fa clip-arrow-left-3"></i> Cancelar</a>
+                    
+                    
+                </div>
+               
+            </div>
+            </form>
+            <!-- end: FROM -->
+
+        </div>
+    </div>
+
+    <!-- end: PAGE CONTENT-->
+
+{% endblock content %}
+
+{% block js %}
+
+    <script>
+      jQuery(document).ready(function() {
+        Main.init();
+      });
+    </script>
+
+{% endblock js %}

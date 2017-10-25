@@ -16,6 +16,12 @@
 
 {% block content %}
 <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#">Reportes</a></li>
+        <li><a href="{% url 'report:telescopio_list' %}" >Mantenimiento</a></li>
+        <li class="active">Eliminar telescopio</li>
+      </ol>
 
     <!-- start: PAGE CONTENT -->
 

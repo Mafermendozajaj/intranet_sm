@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}Edición de reportes{% endblock %}
+
+{% block css %}     
+
+{% endblock css %}
+
+
+{% block content-header %}
+    <h1>
+        {{ page.title }}
+        <small>{{ page.subtitle }}</small>
+    </h1>
+{% endblock content-header %}
+
+
+{% block content %}
+<div class="container">
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#">Respuesta</a></li>
+        <li><a href="{% url 'report:respuesta_list' %}" >Listado</a></li>
+        <li class="active">Agregar respuesta</li>
+      </ol>
+
+    <div class="row">
+        <!-- left column -->
+        <div class="col-sm-10">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Generando respuesta</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                
+
+                <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Id: </b> {{ reporte.id }}
+                </li>
+                 <li class="list-group-item">
+                  <b>Tipo de reporte: </b> 
+                  {% if reporte.tipo_reporte == 'A' %}
+                    Reporte A
+                  {% elif reporte.tipo_reporte == 'B' %}
+                    Reporte B
+                  {% else %}
+                    Reporte C
+                  {% endif %}
+                </li>
+                <li class="list-group-item">
+                  <b>Observador: </b> {{ reporte.observador}}
+                </li>
+                <li class="list-group-item">
+                  <b>Proyecto: </b> {{ reporte.proyecto}}
+                </li>
+                <li class="list-group-item">
+                  <b>Telescopio: </b> {{ reporte.telescopio}}
+                </li>
+                <li class="list-group-item">
+                  <b>Fecha de observación: </b> {{ reporte.fecha_obs}}
+                </li>
+                <li class="list-group-item">
+                  <b>Datos: </b>
+                  {% if reporte.datos == 'False' %}
+                    No
+                  {% else %}
+                    Si
+                  {% endif %}
+                </li>
+                <li class="list-group-item">
+                  <b>Observadores: </b> {{ reporte.observadores}}
+                </li>
+                <li class="list-group-item">
+                  <b>Horas trabajadas: </b> {{ reporte.horas_trabajadas}}
+                </li>
+                <li class="list-group-item">
+                  <b>Hp clima: </b> {{ reporte.hp_clima}}
+                </li>
+                <li class="list-group-item">
+                  <b>Hp instrumentos: </b> {{ reporte.hp_instrumentos}}
+                </li>
+                <li class="list-group-item">
+                  <b>Hp software: </b> {{ reporte.hp_software}}
+                </li>
+                <li class="list-group-item">
+                  <b>Comentarios: </b> {{ reporte.comentarios}}
+                </li>
+                <li class="list-group-item">
+                  <b>Vacio camara: </b> {{ reporte.vacio_camara}}
+                </li>
+                <li class="list-group-item">
+                  <b>Vacio ls: </b> {{ reporte.vacio_ls}}
+                </li>
+                <li class="list-group-item">
+                  <b>Enviado: </b> 
+                  {% if reporte.enviado == 'False' %}
+                    No
+                  {% else %}
+                    Si
+                  {% endif %}
+                </li>
+                <li class="list-group-item">
+                  <b>Fecha de registro: </b> {{ reporte.fecha_reg}}
+                </li>
+                <li class="list-group-item">
+                  <b>Última actualización: </b> {{ reporte.ult_act}}
+                </li>
+
+              </ul>
+
+
+
+                <div class="box-body">
+                    <form role="form"  method="post" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="control-group">
+                            <br>
+                            <br>
+                            <div class="controls">
+                                <button class="btn btn-success" type="submit">
+                                    <i class="icon-ok icon-white"></i> Grabar
+                                </button>
+
+                                <a href="{% url 'report:reporte_view' reporte.id %}" class="btn btn-primary"><i
+                                        class="fa clip-arrow-left-3"></i> Cancelar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block js %}
+
+
+{% endblock js %}

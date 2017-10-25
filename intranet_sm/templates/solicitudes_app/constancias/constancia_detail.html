@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}Principal{% endblock %}
+
+{% block page_title %}Principal{% endblock page_title %}
+
+
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#">Solicitudes</a></li>
+        <li><a href="#">Control de asistencia</a></li>
+        <li><a href="{% url 'solicitudes:constancia_list' %}">Constancias</a></li>
+        <li class="active">Detalles de la constancia</li>
+      </ol>
+
+  <div class="row">
+        <div class="col-xs-10">
+
+          <!-- Profile Image -->
+          <div class="box box-primary">
+                    <!--box header empieza aqui-->
+                    <div class="box-header">
+                        <h3 class="box-title">Listado de constancias - Intranet</h3>
+                    </div>
+                    <!-- /.box-header -->
+
+            <div class="box-body box-profile">
+
+<!--              <h3 class="profile-username text-center">{{ object.get_full_name }}</h3>
+
+              <p class="text-muted text-center">{{ object.cargo }}</p>
+            -->
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Id: </b> {{ object.id }}
+                </li>
+                 <li class="list-group-item">
+                  <b>Tipo de constancia: </b> 
+                  {% if object.tipo_constancia == 'SS' %}
+                    Sin salario
+                  {% elif object.tipo_constancia == 'SN' %}
+                    Salario normal
+                  {% elif object.tipo_constancia == 'SB' %}
+                    Salario base
+                  {% elif object.tipo_constancia == 'SI' %}
+                    Salario integral
+                  {% else %}
+                    Salario banavih
+                  {% endif %}
+                </li>
+                <li class="list-group-item">
+                  <b>Empleado: </b> {{ object.empleado}}
+                </li>
+                <li class="list-group-item">
+                  <b>Fecha de solicitud: </b> {{ object.fecha_solicitud}}
+                </li>
+                <li class="list-group-item">
+                  <b>Fecha de aprobación: </b> {{ object.fecha_aprobacion}}
+                </li>
+                <li class="list-group-item">
+                  <b>Salario: </b> 
+                  {% if object.sueldo == '0' %}
+                    No aplica
+                  {% else %}
+                    {{ object.sueldo}}
+                  {% endif %}
+                </li>
+              </ul>                          
+                            <!--Foot de la tabla-->
+
+                        </table>
+
+
+<div id="texto_constancia">
+    <p align="center">
+      <strong><u>CONSTANCIA DE TRABAJO</u></strong>
+    </p>
+    <div name="Primer_parrafo">
+      <p>
+        Quien suscribe, Licenciada <strong>ARAQUE MÁRQUEZ DEISY MARIBEL</strong>,
+        titular de la cédula de identidad Nº V-<strong>12.346.292</strong>, en mi
+        condición de Jefe de Personal (e) de la Fundación Centro de Investigaciones
+        de Astronomía <strong>“</strong>Francisco J. Duarte<strong>”</strong> <strong>(CIDA)</strong>, 
+        hace constar por medio de la presente que el ciudadano: 
+        <strong><u>{{ object.empleado}}</u></strong>, titular de la cédula de identidad Nº V-<strong>9.477.151</strong>, presta sus
+        servicios en esta Fundación desde el día <strong>24 DE FEBRERO DE 1999</strong>, como personal <strong>ORDINARIO</strong>, actualmente ejerce cargo de <strong>COORDINADOR (e)</strong> <strong>DE CÓMPUTO Y PROCESAMIENTO DIGITAL</strong> y devenga una
+        remuneración normal mensual de
+        <strong>
+          SEISCIENTOS QUINCE MIL TRESCIENTOS VEINTINUEVE BOLÍVARES CON 71/100
+          CÉNTIMOS (Bs. 615.329,71)
+        </strong>.
+      </p>
+      </div>
+      <div name="Vencimiento_constancia">
+      <p>
+        Constancia que se expide a petición de parte interesada, en Mérida a los
+        diecinueve (19) días del mes de octubre de 2017.
+      </p>
+    </div>
+    <div name="Seccion_firma">
+      <p align="center">
+        Atentamente,
+      </p>
+      <p align="center">
+        <strong>Lcda. Deisy Araque</strong>
+      </p>
+      <p align="center">
+        <strong>Jefe de Personal (e)</strong>
+      </p>
+      <p align="center">
+        <strong>Fundación CIDA</strong>
+      </p>
+    </div>
+    <div name="Pie_de_constancia">
+      <p>
+        <strong>DMAM/ec.-</strong>
+      </p>
+      <p>
+        <strong><u>NOTA</u></strong>
+        <strong>:</strong>
+        Esta constancia tendrá una vigencia de dos (2) meses a partir de la fecha
+        de su emisión y estará sujeta a conformación a través de los números
+        telefónicos que se reflejan en la misma.
+      </p>
+    </div>
+  </div>
+
+
+
+
+              <a href="./constancia_modelo.html" class="btn btn-primary"><i class="fa fa-download"></i> Imprimir</a>
+              <a href="{% url 'solicitudes:constancia_list' %}" class="btn btn-primary"><i class="fa clip-arrow-left-3"></i> Regresar al listado</a>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+  </div>
+
+
+</div>
+{% endblock content %}
+

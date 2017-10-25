@@ -403,6 +403,22 @@
                     {% endif %}
                 {% endfor %}
 
+                {% include "menu_solicitudes.html" %}
+
+                {% for group in user.groups.all %}
+                    {% if group.name == 'Solicitud' %}
+                        {% include "menu_admin.html" %}
+                    {% endif %}
+                {% endfor %}
+
+                {% include "menu_asistencia.html" %}
+
+                {% for group in user.groups.all %}
+                    {% if group.name == 'Asistencia' %}
+                        {% include "menu_admin.html" %}
+                    {% endif %}
+                {% endfor %}
+
                 {% for group in user.groups.all %}
                     {% if group.name == 'Empleados' %}
                         {% include "menu_users.html" %}

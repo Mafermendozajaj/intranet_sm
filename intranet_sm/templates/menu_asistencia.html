@@ -1,0 +1,26 @@
+
+       <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Asistencia</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'asistencias:dispositivo_list' %}"><i class="fa fa-circle-o"></i> Permisos</a></li>
+            <li><a href="{% url 'asistencias:dispositivo_list' %}"><i class="fa fa-circle-o"></i> Constancias</a></li>
+            <li><a href="{% url 'asistencias:dispositivo_list' %}"><i class="fa fa-circle-o"></i> Vacaciones</a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i> Calendario
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{% url 'asistencias:incidencia_list' %}"><i class="fa fa-circle-o"></i> Incidencias</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Feriados</a></li>              
+              </ul>
+            </li>
+        </li>
+      </ul>
+</li>

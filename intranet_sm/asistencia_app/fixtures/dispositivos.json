@@ -1,0 +1,26 @@
+[
+{
+    "model": "asistencia_app.dispositivo",
+    "pk": 1,
+    "fields": {
+        "ubicacion": "CIDA",
+        "activo": true
+    }
+},
+{
+    "model": "asistencia_app.dispositivo",
+    "pk": 2,
+    "fields": {
+        "ubicacion": "CNTO",
+        "activo": true
+    }
+},
+{
+    "model": "asistencia_app.dispositivo",
+    "pk": 3,
+    "fields": {
+        "ubicacion": "OAN",
+        "activo": true
+    }
+}
+]

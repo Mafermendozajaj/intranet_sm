@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}Principal{% endblock %}
+
+{% block page_title %}Principal{% endblock page_title %}
+
+
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#">Asistencia</a></li>
+        <li><a href="#">Calendario</a></li>
+        <li><a href="{% url 'asistencias:incidencia_list' %}">Incidencias</a></li>
+        <li class="active">Detalles de la incidencia</li>
+      </ol>
+
+  <div class="row">
+        <div class="col-xs-10">
+
+          <!-- Profile Image -->
+          <div class="box box-primary">
+                    <!--box header empieza aqui-->
+                    <div class="box-header">
+                        <h3 class="box-title">Listado de incidencias - Intranet</h3>
+                    </div>
+                    <!-- /.box-header -->
+
+            <div class="box-body box-profile">
+
+<!--              <h3 class="profile-username text-center">{{ object.get_full_name }}</h3>
+
+              <p class="text-muted text-center">{{ object.cargo }}</p>
+            -->
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Id: </b> {{ object.id }}
+                </li>
+                <li class="list-group-item">
+                  <b>Título: </b> {{ object.title}}
+                </li>
+                <li class="list-group-item">
+                  <b>Inicio: </b> {{ object.start}}
+                </li>
+                <li class="list-group-item">
+                  <b>Fin: </b> {{ object.end}}
+                </li>
+              </ul>                          
+               
+              <!--Foot de la tabla-->
+              <a href="{% url 'asistencias:incidencia_list' %}" class="btn btn-primary"><i class="fa clip-arrow-left-3"></i> Regresar al listado</a>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+  </div>
+
+
+</div>
+{% endblock content %}
+

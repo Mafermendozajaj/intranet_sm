@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Principal{% endblock %}
+
+{% block page_title %}Principal{% endblock page_title %}
+
+
+{% block css %}
+
+
+{% endblock css %}
+
+
+{% block content %}
+
+
+    <!-- start: PAGE HEADER -->
+        <div class="row">
+          <div class="col-sm-12">
+
+            <!-- start: PAGE TITLE & BREADCRUMB -->
+            <ol class="breadcrumb">
+              <li>
+                <i class="clip-home-3"></i>
+                    <a href="">
+                        Home
+                    </a>
+              </li>
+              <li class="active">
+                Dispositivos
+              </li>
+
+
+            </ol>
+
+            <div class="page-header">
+              <h1>Dispositivos <small> gestión</small></h1>
+            </div>
+            <!-- end: PAGE TITLE & BREADCRUMB -->
+          </div>
+        </div>
+
+    <!-- end: PAGE HEADER -->
+
+    <!-- start: PAGE CONTENT -->
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <!-- start: FROM -->
+            <form action="" method="post">{% csrf_token %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    Eliminar registro
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#"> </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <td>Código</td>
+                            <td>{{object.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ubicación</td>
+                            <td>{{object.ubicacion}}</td>
+                        </tr>
+                        <tr>
+                            <td>Activo</td>
+                            <td>{{object.activo}}</td>
+                        </tr>
+                    </table>
+
+                    <p>¿ Seguro de eliminar este registro ?</p>
+
+                    <a href="" onclick="document.forms[0].submit();return false;" class="btn btn btn-danger">
+                    <i class="fa fa-trash-o"></i> Eliminar</a>
+                    <a href="{% url 'dispositivo_list' %}" class="btn btn-primary"><i class="fa clip-arrow-left-3"></i> Cancelar</a>
+
+
+                </div>
+
+            </div>
+            </form>
+            <!-- end: FROM -->
+
+        </div>
+    </div>
+
+    <!-- end: PAGE CONTENT-->
+
+{% endblock content %}
+
+{% block js %}
+    <script>
+      jQuery(document).ready(function() {
+        Main.init();
+      });
+    </script>
+{% endblock js %}

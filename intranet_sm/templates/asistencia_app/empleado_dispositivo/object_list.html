@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Principal{% endblock %}
+
+{% block page_title %}Principal{% endblock page_title %}
+
+
+{% block css %}
+
+{% endblock css %}
+
+{% block content-header %}
+    <h1>
+        {{ page.title }}
+        <small>{{ page.subtitle }}</small>
+    </h1>
+{% endblock content-header %}
+
+
+{% block content %}
+
+    <!-- start: PAGE CONTENT -->
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <!-- start: DYNAMIC TABLE PANEL -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    Listado
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#"> </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                     <a data-toggle="modal" class="btn btn-info" href='{% url 'empresa_empleados_dispositivos_add' %}'>
+                        <i class="fa fa-plus"></i> Asociar empleado a dispositivo </a>
+                    <br><br>
+
+
+                    <table class="table table-striped table-bordered table-hover table-full-width" id="dias_list">
+                        <thead>
+                            <tr>
+                                <th>Dispositivo</th>
+                                <th class="hidden-xs">ubicación</th>
+                                <th>Empleado</th>
+                                <th class="hidden-xs">ID Emp/disp.</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {% for emp_dis in object_list %}
+                            <tr>
+
+                                <td>{{ emp_dis.dispositivo.nombre }}</td>
+                                <td class="hidden-xs">{{ emp_dis.dispositivo.ubicacion }}</td>
+                                <td>{{ emp_dis.empleado.last_name }}, {{ emp_dis.empleado.first_name }}</td>
+                                <td>{{ emp_dis.id_user }}</td>
+                                <td class="center">
+
+                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                        {% comment %}
+                                          <a href="#" class="btn btn-xs btn-teal tooltips" data-placement="top" data-original-title="Editar"><i class="fa fa-edit"></i></a>
+                                        {% endcomment %}
+                                        <a href="{% url 'empresa_empleados_dispositivos_delete' emp_dis.id %}" class="btn btn-xs btn-bricky tooltips" data-placement="top" data-original-title="Eliminar del dispositivo"><i class="fa fa-times fa fa-white"></i></a>
+                                    </div>
+
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% include "_pagination.html" %}
+                </div>
+            </div>
+            <!-- end: DYNAMIC TABLE PANEL -->
+
+        </div>
+    </div>
+
+    <!-- end: PAGE CONTENT-->
+
+{% endblock content %}
+
+{% block js %}
+
+
+    <script>
+      jQuery(document).ready(function() {
+        Main.init();
+
+      });
+    </script>
+
+{% endblock js %}

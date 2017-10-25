@@ -20,6 +20,12 @@
 
 {% block content %}
 <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#">Reportes</a></li>
+        <li><a href="{% url 'report:reporte_list' %}" >Listado</a></li>
+        <li class="active">Agregar reporte</li>
+      </ol>
 
     <div class="row">
         <!-- left column -->

@@ -1,0 +1,498 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Principal{% endblock %}
+
+{% block page_title %}Principal{% endblock page_title %}
+
+
+{% block content-header %}
+    <h1>
+        {{ page.title }}
+        <small>{{ page.subtitle }}</small>
+    </h1>
+{% endblock content-header %}
+
+
+{% block css %}
+
+    <link href="{% static 'plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css' %}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{% static 'plugins/bootstrap-modal/css/bootstrap-modal.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'plugins/fullcalendar/fullcalendar.css' %}" rel="stylesheet">
+
+    <link href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/bootstrap-timepicker.min.css" rel="stylesheet' %}"/>
+    <link href="{% static 'plugins/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet"/>
+
+    <style>
+        #createEvent2Modal {
+            top: 30%;
+
+            outline: none;
+            overflow: hidden;
+        }
+    </style>
+
+{% endblock css %}
+
+
+{% block content %}
+
+
+    <!-- start: PAGE CONTENT -->
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <!-- start: FROM -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    Calendario/Empleado
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#"> </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    <h3>Nombre: {{ empleado.first_name }}, {{ empleado.last_name }} </h3>
+
+                    <br>
+
+                    <div id='calendar'></div>
+                    <button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="modal"
+                            data-target="#createEvent2Modal">Crear incidencia
+                    </button>
+
+                </div>
+
+            </div>
+            <!-- end: FROM -->
+
+        </div>
+    </div>
+
+
+    <div id="createEventModal" class="modal fade" tabindex="-1" data-focus-on="input:first" style="display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+            <h4 class="modal-title">Agregar marca a empleado</h4>
+        </div>
+
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-2">Nombre:</div>
+                <div class="col-md-10">{{ empleado.first_name }}, {{ empleado.last_name }}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">Fecha:</div>
+                <div class="col-md-10" id="when"></div>
+            </div>
+
+            <div class="row">
+
+                    <div class="col-md-2">
+                        Dispositivo
+                    </div>
+
+                    <div class="col-md-10">
+                    <select class="form-control" id="dispositivo-marca">
+                        {% for ed in empleadoClienteDispositivo %}
+                         <option value="{{ ed.id_user }}|{{ ed.dispositivo_id }}">{{ ed.dispositivo }}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">Hora:</div>
+                <div class="col-md-10">
+                    <div class="input-group input-append bootstrap-timepicker">
+                        <input type="text" class="form-control time-picker">
+                        <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="apptStartTime"/>
+            <input type="hidden" id="apptEndTime"/>
+            <input type="hidden" id="apptAllDay"/>
+            <input type="hidden" id="id_user" value="{{ empleado_id }}"/>
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">
+                Cancelar
+            </button>
+            <button id="submitButton" type="button" class="btn btn-primary">
+                Grabar
+            </button>
+        </div>
+    </div>
+
+
+
+    <div id="createEvent2Modal" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+            <h4 class="modal-title">Registro de insicencias de asistencia</h4>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col-md-2">Nombre:</div>
+                <div class="col-md-10">{{ empleado.first_name }}, {{ empleado.last_name }}</div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <h5>Incidencia</h5>
+                    <input id="eventTitle" type="text" class="form-control"></input>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <h5>Dispositivo</h5>
+
+                    <select class="form-control" id="dispositivo-nota">
+                        {% for ed in empleadoClienteDispositivo %}
+                         <option value="{{ ed.id_user }}|{{ ed.dispositivo_id }}">{{ ed.dispositivo }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <h5>Rango de fecha y hora</h5>
+                    <div class="input-group">
+                        <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+                        <input type="text" class="form-control date-time-range" id="fecha_rango">
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-light-grey">
+                Close
+            </button>
+            <button type="button" class="btn btn-blue" id="submitNotaButton">
+                Save changes
+            </button>
+        </div>
+    </div>
+
+
+    <div id="messages" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" style="display: none;">
+        <div class="modal-body">
+            <p>
+                <div id="message-txt"></div>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+
+
+{% endblock content %}
+
+{% block js %}
+
+    <script src="{% static "plugins/bootstrap-modal/js/bootstrap-modal.js" %}"></script>
+    <script src="{% static "plugins/bootstrap-modal/js/bootstrap-modalmanager.js" %}"></script>
+    <script src="{% static "plugins/moment/min/moment.min.js" %}"></script>
+    <script src="{% static "plugins/fullcalendar/fullcalendar.min.js" %}"></script>
+    <!--script src="{% static "plugins/fullcalendar/lang-all.js" %}"></script -->
+
+    <script src="{% static "plugins//bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" %}"></script>
+    <script src="{% static "plugins/bootstrap-daterangepicker/daterangepicker.js" %}"></script>
+    <script src="{% static "plugins/bootstrap-timepicker/js/bootstrap-timepicker.js" %}"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            //$('.time-picker').timepicker();
+
+            $('.date-range').daterangepicker();
+            $('.date-time-range').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 60,
+                locale: {
+                    format: 'YYYY-MM-DDTHH:mm'
+                }
+            });
+
+
+             $('.time-picker').timepicker({
+             minuteStep: 1,
+             secondStep: 5,
+             showInputs: false,
+             modalBackdrop: true,
+             showSeconds: true,
+             showMeridian: false
+             });
+
+
+
+            //Main.init();
+            //FormElements.init();
+
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+
+
+            function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie != '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = jQuery.trim(cookies[i]);
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                lang: 'es',
+                //defaultDate: '2014-09-12',
+                timezone: 'local',
+                editable: true,
+                selectable: true,
+                eventLimit: true, // allow "more" link when too many events
+
+                eventRender: function (event, element) {
+
+                    if (event.tipo == 1) {
+                        element.append("<span class='closeon'>X</span>");
+                        element.find(".closeon").click(function () {
+                            if (confirm('¿ Esta seguro(a) de eliminar esta marca o nota ?')) {
+
+
+                                $.ajax({
+                                    url: "/asistencia/marcas/emp_calendar/json/{{empleado_id}}/" + event._id + "/", // the endpoint
+                                    type: "DELETE", // http method
+                                    dataType: "json",
+                                    //data: {
+                                    //    id: event._id,
+                                        //csrfmiddlewaretoken: getCookie('csrftoken')
+                                    //},
+                                    success: function (json) {
+                                        // hide the post
+                                        //$('#post-' + post_primary_key).hide(); // hide the post on success
+                                        console.log("post deletion successful");
+                                    },
+
+                                    error: function () {
+                                        alert('Error elimiando marcas');
+                                    }
+
+                                });
+                                $('#calendar').fullCalendar('removeEvents', event._id);
+                            }
+                        });
+                    }
+                },
+
+                select: function (start, end, allDay) {
+                    //jQuery.noConflict();
+                    //endtime = $.fullCalendar.formatDate(end,'h:mm tt');
+                    //starttime = this.fullCalendar.formatDate(start,'ddd, MMM d, h:mm tt');
+                    starttime = moment(start).format('ddd, DD/MM/YYYY');
+                    markStart = moment(start).format('YYYY-MM-DD');
+                    var mywhen = starttime;
+                    $('#createEventModal #apptStartTime').val(markStart);
+                    $('#createEventModal #apptEndTime').val(end);
+                    $('#createEventModal #apptAllDay').val(allDay);
+                    $('#createEventModal #when').text(mywhen);
+                    $("#createEventModal").modal('show');
+                },
+
+                eventSources: [
+
+
+                    {
+                        url: "/asistencia/marcas/emp_calendar/json/{{empleado_id}}/",
+                        data: {
+                            //year:$('#calendar').fullCalendar('getDate'),
+                            //month:$('#calendar').fullCalendar('getDate'),
+                            csrfmiddlewaretoken: getCookie('csrftoken')
+                        },
+                        timezone: "UTC",
+                        dataType: "json",
+                        type: "get",
+                        success: function (res) {
+                            //alert(JSON.stringify(res));
+                        },
+                        error: function () {
+                            alert('Error cargando los registros de asistencia');
+                        },
+
+
+                    },
+                    {
+                        url: "/asistencia/marcas/emp_calendar/api/notas/{{empleado_id}}/",
+                        data: {
+                            csrfmiddlewaretoken: getCookie('csrftoken')
+                        },
+                        timezone: "UTC",
+                        dataType: "json",
+                        type: "get",
+                        success: function (res) {
+                            //alert(JSON.stringify(res));
+                        },
+                        error: function () {
+                            alert('Error cargando los registros de notas');
+                        },
+                        color: 'orange',
+                        droppable: false
+
+                    }
+
+                ]
+
+            });
+
+            $('#submitButton').on('click', function (e) {
+                // We don't want this to act as a link so cancel the link action
+                e.preventDefault();
+
+                doSubmit();
+            });
+
+            function doSubmit() {
+                $("#createEventModal").modal('hide');
+                console.log($('#apptStartTime').val());
+                console.log($('#apptEndTime').val());
+
+                var martStartTime = $('#apptStartTime').val() + 'T' + $('.time-picker').val();
+                var disp = $('#dispositivo-marca').val().split('|');
+
+                //alert("form submitted");
+                console.log(martStartTime);
+
+                var newEvent = {
+                    start: martStartTime,
+                    allDay: false,
+                    title: 'marca'
+
+                };
+
+                $.ajax({
+                    url: '/asistencia/marcas/emp_calendar/api/marcas/{{empleado_id}}/',
+                    data: {
+                        "id_user": disp[0],
+                        "dispositivo": disp[1],
+                        "fecha": martStartTime,
+                        csrfmiddlewaretoken: getCookie('csrftoken')
+
+                    },
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (response) {
+                        event.id = response.eventid;
+                        $('#calendar').fullCalendar('renderEvent', {
+                                    start: martStartTime,
+                                    allDay: false,
+                                    title: 'marca'
+                                }, true // make the event "stick"
+                        );
+                        //$('#calendar').fullCalendar('updateEvent', newEvent);
+                    },
+                    error: function (e) {
+                        console.log(e.responseText);
+                    }
+                });
+
+            }
+
+            $('#submitNotaButton').on('click', function (e) {
+                // We don't want this to act as a link so cancel the link action
+                e.preventDefault();
+
+                doSubmitNota();
+            });
+
+            function doSubmitNota() {
+                $("#createEvent2Modal").modal('hide');
+                console.log($('#eventTitle').val());
+                console.log($('#fecha_rango').val());
+                console.log($('#dispositivo-nota').val());
+
+                var fecha = $('#fecha_rango').val().split(' - ');
+                var disp = $('#dispositivo-nota').val().split('|');
+
+
+                $.ajax({
+                    url: '/asistencia/marcas/emp_calendar/api/marcas/{{empleado_id}}/',
+                    data: {
+                        "empleado": {{empleado_id}},
+                        "title": $('#eventTitle').val(),
+                        "start": fecha[0],
+                        "end": fecha[1],
+                        "allDay": false,
+                        csrfmiddlewaretoken: getCookie('csrftoken')
+
+                    },
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (response) {
+                        event.id = response.eventid;
+                        $('#calendar').fullCalendar('renderEvent', {
+                                    title: $('#eventTitle').val(),
+                                    start: new Date(fecha[0]),
+                                    end: new Date(fecha[1]),
+                                    allDay: false,
+                                }, true // make the event "stick"
+                        );
+                    },
+                    error: function (e) {
+                        console.log(e.responseText);
+                        $('#messages #message-txt').text("Debes colocar un texto en la incidencia");
+                        $("#messages").modal('show');
+                    }
+                });
+
+            }
+
+        });
+    </script>
+
+{% endblock js %}

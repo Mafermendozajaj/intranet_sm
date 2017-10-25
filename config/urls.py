@@ -24,6 +24,12 @@ urlpatterns = [
     #Report app
     url(r'^report/', include('intranet_sm.report_app.urls', namespace='report')),
 
+    #Solicitudes app
+    url(r'^solicitudes/', include('intranet_sm.solicitudes_app.urls', namespace='solicitudes')),
+
+    #Asistencia app
+    url(r'^asistencia/', include('intranet_sm.asistencia_app.urls', namespace='asistencias')),        
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

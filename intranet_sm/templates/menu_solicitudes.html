@@ -1,0 +1,55 @@
+
+       <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Solicitudes</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'solicitudes:constancia_list' %}"><i class="fa fa-circle-o"></i> Listado empleado</a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i> Otro
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Empleado retirado</a></li>
+              </ul>
+            </li>
+           <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i> Control de asistencia
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Incidencias</a></li>
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-circle-o"></i> Vacaciones
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Asignación</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Solicitud</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Solicitudes permisos</a></li>
+                  </ul>
+                </li>
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-circle-o"></i> Constancias
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="{% url 'solicitudes:constancia_list' %}"><i class="fa fa-circle-o"></i> Solicitud</a></li>
+                  </ul>
+                </li>                
+              </ul>
+            </li>
+        </li>
+      </ul>
+</li>

@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Principal{% endblock %}
+
+{% block page_title %}Principal{% endblock page_title %}
+
+
+{% block css %}
+
+
+{% endblock css %}
+
+
+{% block content %}
+
+    <!-- start: PAGE CONTENT -->
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <!-- start: DYNAMIC TABLE PANEL -->
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-md-12 space20">
+
+                            <a data-toggle="modal" class="btn btn-info" href='{% url 'empresa_export_marca' user.id %}'
+                               data-target="#myModal">
+                                Exportar a excel <i class="fa clip-calendar-3"></i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover table-full-width" id="dias_list">
+                        <thead>
+                        <tr>
+                            <th class="hidden-xs">ID Emp/Dispo</th>
+                            <th>Nombre Empleado</th>
+                            <th class="hidden-xs">Nombre Disp.</th>
+                            <th>Ubicación</th>
+                            <th class="hidden-xs">Fecha</th>
+                            <th>Acción</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for marca in object_list %}
+                            <tr>
+                                <td>{{ marca.id_user }}</td>
+                                <td>{{ marca.get_empleado_full_name }}</td>
+                                <td>{{ marca.dispositivo.nombre }}</td>
+                                <td class="hidden-xs">{{ marca.dispositivo.ubicacion }}</td>
+                                <td>{{ marca.fecha|date:"D d/m/Y H:i" }}</td>
+                                <td>
+
+                                    <a data-toggle="modal"
+                                       href="{% url 'empresa_marcas_empleados_ind' %}?empleado_id={{ marca.get_empleado_id }}"
+                                       class="btn btn-xs btn-teal tooltips"
+                                       data-target="#modal_detail_pesonal"><i class="fa clip-calendar"></i></a>
+
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% include "_pagination.html" %}
+                </div>
+            </div>
+            <!-- end: DYNAMIC TABLE PANEL -->
+
+        </div>
+    </div>
+
+    <!-- end: PAGE CONTENT-->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div> <!-- /.modal-content -->
+        </div> <!-- /.modal-dialog -->
+    </div> <!-- /.modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal_detail_pesonal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+{% endblock content %}
+
+{% block js %}
+
+    <script src="{% static "plugins//bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" %}"></script>
+    <script src="{% static "plugins/jquery-validation/dist/jquery.validate.js" %}"></script>
+
+
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+        });
+
+
+        $(document.body).on('hidden.bs.modal', function () {
+            $('#modal_detail_pesonal').removeData('bs.modal')
+        });
+
+
+        /*
+
+         $("a[data-toggle=modal], button[data-toggle=modal]").click(function (event) {
+         event.preventDefault();
+         var target = $(this).attr("href");
+
+         $("#modal_detail_pesonal .modal-body").load(target, function () {
+         $("#modal_detail_pesonal").modal("show");
+         });
+
+         });
+         */
+
+
+    </script>
+
+{% endblock js %}

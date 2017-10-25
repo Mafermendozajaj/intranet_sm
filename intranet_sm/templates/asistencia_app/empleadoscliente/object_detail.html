@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Principal{% endblock %}
+
+{% block page_title %}Principal{% endblock page_title %}
+
+
+{% block css %}
+
+{% endblock css %}
+
+
+{% block content %}
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div> <!-- /.modal-content -->
+        </div> <!-- /.modal-dialog -->
+    </div> <!-- /.modal -->
+
+
+    <!-- start: PAGE CONTENT -->
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <!-- start: DYNAMIC TABLE PANEL -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    Vista por empleado
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#"> </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-md-12 space20">
+
+                            <a href="{% url 'empresa_dispositivos_list' %}" class="btn btn-primary"><i class="fa clip-arrow-left-3"></i> Regresar a dispoditivos</a>
+
+                            <a data-toggle="modal" class="btn btn-info" href='{% url 'empleados_export_empleado' object.id %}' data-target="#myModal">
+                                Exportar a excel <i class="fa clip-calendar-3"></i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover table-full-width" id="empleado_detail">
+                        <tr>
+                          <th>Empleado:</th><td colspan="3">{{ object.nombre}}, {{object.apellidos}}</td>
+                        </tr>
+                        <tr>
+                          <th colspan="3">Dispositivos asociados:</th>
+                        </tr>
+                        <tr>
+                            <td><B>Nombre</B></td><td><B>Id en dispositivo</B></td><td><B>Acción</B></td>
+                        </tr>
+                        {% for dis in dispositivo_empleado %}
+                            <tr>
+
+                                <td>{{ dis.dispositivo }}</td>
+                                <td>{{ dis.id_user }}</td>
+
+                                <td class="center">
+
+                                    <a href="{% url 'empleados_dispositivos_delete' dis.id object.id %}" class="btn btn-xs btn-bricky tooltips" data-placement="top" data-original-title="Eliminar"><i class="fa fa-times fa fa-white"></i></a>
+
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% comment %}
+
+
+                            <td>
+                                <button type="button" class="btn" data-html="true" data-toggle="popover" title="Dispositivos asociados" data-content="{{ d }}">Ver dispositivos asociados</button>
+
+                                <a data-toggle="modal" class="btn btn-info" href='{% url 'empleados_dispositivos_add' object.id %}'>
+                                   Asociar a dispositivo <i class="fa clip-calendar-3"></i></a>
+
+                            </td>
+                            {% endcomment %}
+
+                    </table>
+
+                    <br>
+                     <a data-toggle="modal" class="btn btn-info" href='{% url 'empleados_dispositivos_add' object.id %}'>
+                        <i class="fa fa-plus"></i> Asociar a dispositivo </a>
+                    <br>
+                    <br>
+
+                    <table class="table table-striped table-bordered table-hover table-full-width" id="dias_list">
+                        <thead>
+                            <tr>
+                                <th class="hidden-xs">Nombre</th>
+                                <th class="hidden-xs">Ubicación</th>
+                                <th>fecha</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {% for marca in marcas %}
+                            <tr>
+                                <td class="hidden-xs">{{ marca.dispositivo.nombre}}</td>
+                                <td class="hidden-xs">{{ marca.dispositivo.get_ubicacion}}</td>
+
+                                <td>{{ marca.fecha|date:"D d/m/Y H:m" }}</td>
+
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% include "_pagination.html" %}
+                </div>
+            </div>
+            <!-- end: DYNAMIC TABLE PANEL -->
+
+        </div>
+    </div>
+
+    <!-- end: PAGE CONTENT-->
+
+{% endblock content %}
+
+{% block js %}
+
+    <script>
+      jQuery(document).ready(function() {
+        Main.init();
+      });
+    </script>
+
+{% endblock js %}

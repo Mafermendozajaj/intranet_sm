@@ -7,7 +7,7 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 from pure_pagination.mixins import PaginationMixin
 
-from intranet_sm.report_app.models import Reporte
+from intranet_sm.report_app.models import Reporte, Respuesta
 from intranet_sm.report_app.forms.reporte_form import ReporteForm
 
 
@@ -70,6 +70,8 @@ class ReporteDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(ReporteDetailView, self).get_context_data(**kwargs)
         context['page'] = self.page
+        context['respuestas'] = Respuesta.objects.filter(reporte_id=self.kwargs['pk'])
+        #context['respuestas'] = Respuesta.objects.all()
         return context
 
 

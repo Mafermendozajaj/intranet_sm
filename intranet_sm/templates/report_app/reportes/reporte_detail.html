@@ -12,7 +12,12 @@
 
 {% block content %}
 <div class="container">
-
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#">Reportes</a></li>
+        <li><a href="{% url 'report:reporte_list' %}" >Listado</a></li>
+        <li class="active">Detalles del reporte</li>
+      </ol>
 
   <div class="row">
         <div class="col-xs-10">
@@ -106,8 +111,51 @@
                 </li>
 
               </ul>
+
+                        <table id="example1" class="table table-bordered table-striped table-hover">
+                            <!--Campos de la tabla-->
+                            <thead>
+                                <tr>
+                                    <th>N° respuesta</th>
+                                    <th>Respuesta</th>
+                                    <th>Fecha de registro</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            
+                            <!--Body de la tabla-->
+                            <tbody>
+                            {% for respuesta in respuestas %}
+                                <tr>
+                                    <td>{{ respuesta.id }}</td>
+                                    <td>{{ respuesta.respuesta }}</td>
+                                    <td>{{ respuesta.fecha_reg }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                              <a href="{% url 'report:respuesta_delete' object.id respuesta.id %}"
+                                               title="Eliminar"
+                                               class="btn btn-danger"><i class="fa fa-trash-o"></i></i> Eliminar</a>
+                                        </div>
+
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            
+                            <!--Foot de la tabla-->
+                            <tfoot>
+                                <tr>
+                                    <th>N° respuesta</th>
+                                    <th>Respuesta</th>
+                                    <th>Fecha de registro</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
               <a href="{% url 'report:reporte_list' %}" class="btn btn-primary"><i class="fa clip-arrow-left-3"></i> Regresar al listado</a>
-              <a href="{% url 'report:reporte_list' %}" class="btn btn-primary"><i class="fa clip-arrow-left-3 fa-commenting"></i> Respuesta</a>
+              <a href="{% url 'report:respuesta_create' object.id %}" class="btn btn-primary"><i class="fa clip-arrow-left-3 fa-commenting"></i> Respuesta</a>
             </div>
             <!-- /.box-body -->
           </div>

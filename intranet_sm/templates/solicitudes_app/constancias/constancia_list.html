@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}Usuarios Intranet{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins\datatables\dataTables.bootstrap.min-css' %}">
+{% endblock css %}
+
+{% block content-header %}
+    <h1>
+        {{ page.title }}
+        <small>{{ page.subtitle }}</small>
+    </h1>
+{% endblock content-header %}
+
+
+{% block content %}
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#">Solicitudes</a></li>
+        <li><a href="#">Control de asistencia</a></li>
+        <li class="active">Constancias</li>
+      </ol>
+
+        <div class="row">
+            <div class="col-xs-10">
+                <div class="box box-primary">
+                    <!--box header empieza aqui-->
+                    <div class="box-header">
+                        <h3 class="box-title">Listado de constancias - Intranet</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive">
+
+                        <a href="{% url 'solicitudes:constancia_create' %}"
+                                               title="Agregar constancia"
+                                               class="btn btn-info">Agregar constancia <i class="fa fa-plus"></i></a>
+                        <a href="{% url 'solicitudes:constancia_list' %}" title="Actualizar constancia" class="btn btn-info" align="right">Actualizar <i class="fa fa-refresh"></i></a>
+
+                        </br></br>
+                        <table id="example1" class="table table-bordered table-striped table-hover">
+                            <!--Campos de la tabla-->
+                            <thead>
+                                <tr>
+                                    <th>N° constancia</th>
+                                    <th>Fecha de solicitud</th>
+                                    <th>Tipo de constancia</th>
+                                    <th>Estado de la constancia</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            
+                            <!--Body de la tabla-->
+                            <tbody>
+                            {% for cons in constancia_list %}
+                                <tr>
+                                    <td>{{ cons.id }}</td>
+                                    <td>{{ cons.fecha_solicitud }}</td>
+                                    <td>
+                                      {% if cons.tipo_constancia == 'SS' %}
+                                        Sin salario
+                                      {% elif cons.tipo_constancia == 'SN' %}
+                                        Salario normal
+                                      {% elif cons.tipo_constancia == 'SB' %}
+                                        Salario base
+                                      {% elif cons.tipo_constancia == 'SI' %}
+                                        Salario integral
+                                      {% else %}
+                                        Salario banavih
+                                      {% endif %}</td>
+                                      <td>
+                                        {% if cons.estado_constancia == 'N' %}
+                                            <span class="label label-primary">Nueva</span>
+                                        {% elif cons.estado_constancia == 'P' %}
+                                            <span class="label label-warning">En proceso</span>
+                                        {% elif cons.estado_constancia == 'C' %}
+                                            <span class="label label-success">Completada</span>
+                                        {% elif cons.estado_constancia == 'E' %}
+                                            <span class="label label-danger">Eliminada</span>
+                                        {% elif cons.estado_constancia == 'V' %}
+                                            <span class="label label-default">Vencida</span>
+                                        {% endif %}
+                                      </td>
+                                    <td>
+                                        <div class="btn-group">
+
+                                            <a href="{% url 'solicitudes:constancia_update' cons.id %}"
+                                               class="btn btn-info"
+                                               title="Editar constancia"><i class="fa fa-edit"></i></a>
+                                            <a href="{% url 'solicitudes:constancia_view' cons.id %}"
+                                               title="Ver constancia"
+                                               class="btn btn-info"><i class="fa fa-eye"></i></a>
+                                            <a href="{% url 'solicitudes:constancia_delete' cons.id %}"
+                                               title="Eliminar"
+                                               class="btn btn-danger"><i class="fa fa-remove"></i></a>
+
+                                        </div>
+
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            
+                            <!--Foot de la tabla-->
+                            <tfoot>
+                                <tr>
+                                    <th>N° constancia</th>
+                                    <th>Fecha de solicitud</th>
+                                    <th>Tipo de constancia</th>
+                                    <th>Estado de la constancia</th>
+                                    <th>Acción</th>
+                            </tfoot>
+                        </table>
+                        {% include "_pagination.html" %}
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+{% block js %}
+
+    <script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/dataTables.bootstrap.min.js' %}"></script>
+
+        <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+              'paging'      : true,
+              'lengthChange': false,
+              'searching'   : false,
+              'ordering'    : true,
+              'info'        : true,
+              'autoWidth'   : false
+            })
+        })
+        </script>
+
+{% endblock js %}
